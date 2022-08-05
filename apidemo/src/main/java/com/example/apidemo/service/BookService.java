@@ -2,11 +2,11 @@ package com.example.apidemo.service;
 
 import java.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import com.example.apidemo.dao.BookRepository;
 import com.example.apidemo.entities.Book;
 
-@Component
+@Service
 public class BookService {
 	
 	@Autowired
