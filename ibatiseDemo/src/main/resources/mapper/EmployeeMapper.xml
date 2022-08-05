@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD MapperEN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.example.ibatisdemo.mapper.EmployeeMapper">
+
+  <select id="findEmployee"  resultType="com.example.ibatisdemo.model.Employee">
+  SELECT * FROM employee ORDER BY id;
+  
+  </select>
+  
+  <select id="findEmployeeById" resultType="com.example.ibatisdemo.model.Employee">
+   SELECT * FROM employee WHERE ID = #{id};
+  </select>
+  
+  <insert id="addEmployee" parameterType="com.example.ibatisdemo.model.Employee">
+   INSERT INTO employee (ID, NAME, ADDRESS) VALUES (#{id}, #{name},#{address})
+  </insert>
+  
+  <update id="updateEmployee" parameterType="com.example.ibatisdemo.model.Employee">
+   UPDATE employee SET ID = #{id},NAME = #{name}, ADDRESS = #{address} WHERE ID = #{id}
+  </update>
+  
+  <delete id="deleteEmployee">
+  DELETE FROM employee WHERE ID = #{id};
+  </delete>
+  
+  <select id="joinTables" resultType="HashMap">
+  SELECT id, name, address, deptName, deptAddress  FROM employee e, department d WHERE e.id = d.deptId ;
+    </select>
+    
+  <!--   <resultMap type="com.example.ibatisdemo.model.Employee" id="empResultMap">
+    <association property="department" column="deptId" select="getDepartment"></association>
+    </resultMap>
+ 
+  <select id="fullDetails" resultMap="empResultMap">
+   SELECT * FROM employee where id = #{id};
+  </select>
+  
+   <select id="getDepartment" resultType="com.example.ibatisdemo.model.Department">
+   SELECT * FROM department;
+   </select>
+    -->
+  
+ </mapper>

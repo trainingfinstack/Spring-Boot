@@ -1,0 +1,5 @@
+{"properties": [{
+  "name": "mybatis.congif-location",
+  "type": "java.lang.String",
+  "description": "A description for 'mybatis.congif-location'"
+}]}
