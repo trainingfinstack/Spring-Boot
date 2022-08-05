@@ -13,8 +13,8 @@ public class BookService {
 	private BookRepository bookRepository ;
 
 	//Display all book record 
-	public List<Book> getAllBook(){
-		List<Book> list =(List<Book>)this.bookRepository.findAll();
+	public Iterable<Book> getAllBook(){
+	Iterable<Book> list= this.bookRepository.findAll();
 		return list;
 	}
 	//Display book record by id
