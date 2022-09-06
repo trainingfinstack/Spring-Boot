@@ -19,15 +19,9 @@ import net.practice.restApi.service.EmployeeService;
 @RestController
 @RequestMapping("/api/employees")
 public class EmployeeController {
-	
+	@Autowire
 	private EmployeeService employeeService;
 
-	public EmployeeController(EmployeeService employeeService) {
-		super();
-		this.employeeService = employeeService;
-	}
-	
-	
 	@PostMapping()
 	public ResponseEntity<Employee> saveEmployee(@RequestBody Employee employee){
 		return new ResponseEntity<Employee>(employeeService.saveEmployee(employee), HttpStatus.CREATED);
